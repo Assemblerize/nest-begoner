@@ -1,0 +1,8 @@
+require("__nest-begoner__.prototypes.item")
+require("__nest-begoner__.prototypes.entity")
+require("__nest-begoner__.prototypes.recipe")
+require("__nest-begoner__.prototypes.sound")
+--require("__nest-begoner__.prototypes.tech")
+require("__nest-begoner__.prototypes.toggle")
+require("__nest-begoner__.prototypes.animations")
+require("__nest-begoner__.prototypes.icon")
