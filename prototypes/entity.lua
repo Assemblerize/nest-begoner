@@ -7,14 +7,13 @@ local repellent = {
   flags = {"placeable-player", "player-creation", "not-rotatable"},
   subgroup = "defensive-structure",
   order = "z-d[radar]-b[expansion-repellent]",
-  collision_box = {{-2.45, -2.2}, {2.45, 2.4}},
+  collision_box = {{-2.45, -2.2}, {2.5, 2.2}},
   selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
   is_military_target = true,
   random_variation_on_create = false,
   drawing_box_vertical_extension = 1.3,
   collision_mask = {layers={item=true, object=true, player=true, water_tile=true, elevated_rail=true, is_object=true, is_lower_object=true}},
 
-  --factoriopedia_alternative = "nbg-expansion-repellent-holdable",
   --hidden = true,
   --hidden_in_factoriopedia = true,
 
@@ -37,12 +36,13 @@ local repellent = {
     --drain = "0kW"
   },
 
-  render_layer = "zero",
+  render_layer = "under-object",
+  corpse = "nbg-repellent-corpse",
 
   picture = {
     layers = {
       {
-        filename = "__nest-begoner__/sprites/holdable/base_holdable.png",
+        filename = "__nest-begoner__/sprites/base.png",
         priority = "extra-high",
         width = 544,
         height = 544,
@@ -50,7 +50,7 @@ local repellent = {
         scale = 0.5
       },
       {
-        filename = "__nest-begoner__/sprites/holdable/base_holdable_shadow.png",
+        filename = "__nest-begoner__/sprites/base_shadow.png",
         priority = "extra-high",
         width = 544,
         height = 544,
@@ -100,87 +100,6 @@ local repellent = {
   }
 }
 
-local repellent_holdable = {
-  type = "electric-energy-interface",
-  name = "nbg-expansion-repellent-holdable",
-  icon = "__nest-begoner__/sprites/icons/Icon.png",
-  icon_size = 64,
-  max_health = 500,
-  collision_box = {{-2.4, -2.2}, {2.4, 2.4}},
-  selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
-  drawing_box_vertical_extension = 1.3,
-  collision_mask = {layers={item=true, object=true, player=true, water_tile=true, elevated_rail=true, is_object=true, is_lower_object=true}},
-
-  gui_mode = "none",
-  --render_layer = "zero",
-  continuous_animation = true,
-
-  --flags = {"placeable-player", "player-creation", "not-rotatable"},
-  flags = {"player-creation"},
-  --minable = {mining_time = 0.5, result = "nbg-expansion-repellent"},
-  --placeable_by = {item = "nbg-expansion-repellent", count = 1},
-  --fast_replaceable_group = "nbg-expansion-repellent-group",
-  corpse = "nbg-repellent-corpse",
-  dying_explosion = "oil-refinery-explosion",
-  impact_category = "metal-large",
-  hidden_in_factoriopedia = true,
-  factoriopedia_alternative = "nbg-expansion-repellent",
-
-  energy_usage = "7.5MW",
-  energy_source = {
-    type = "electric",
-    usage_priority = "secondary-input",
-    buffer_capacity = "200MJ",
-    input_flow_limit = "15MW",
-    output_flow_limit = "0kW",
-    --drain = "0kW"
-  },
-
-  picture = {
-    layers = {
-      {
-        filename = "__nest-begoner__/sprites/holdable/base_holdable.png",
-        priority = "extra-high",
-        width = 544,
-        height = 544,
-        shift = {0, -1},
-        scale = 0.5
-      },
-      {
-        filename = "__nest-begoner__/sprites/holdable/base_holdable_shadow.png",
-        priority = "extra-high",
-        width = 544,
-        height = 544,
-        shift = {1.5, -1},
-        scale = 0.5,
-        draw_as_shadow = true
-      }
-    }
-  },
-
-  integration_patch = {
-    filename = "__nest-begoner__/sprites/integration_patch.png",
-    priority = "low",
-    width = 544,
-    height = 544,
-    shift = {0, -1},
-    scale = 0.5
-  },
-
-  water_reflection = {
-    rotate = false,
-    orientation_to_variation = false,
-    pictures = {
-      filename = "__nest-begoner__/sprites/water_reflection.png",
-      priority = "extra-high",
-      width = 430,
-      height = 610,
-      shift = {0, 2.5},
-      scale = 0.5,
-      variation_count = 1
-    }
-  }
-}
 
 local corpse = {
   type = "corpse",
@@ -212,4 +131,4 @@ local corpse = {
 }
 
 
-data:extend({corpse, repellent, repellent_holdable})
+data:extend({corpse, repellent})

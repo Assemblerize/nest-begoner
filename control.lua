@@ -65,8 +65,7 @@ script.on_event(defines.events.on_build_base_arrived, repel_biters_function)
 
 
 local event_filter = {
-  { filter = "name", name = "nbg-expansion-repellent" },
-  { filter = "name", name = "nbg-expansion-repellent-holdable" } }
+  { filter = "name", name = "nbg-expansion-repellent" } }
 -- Registering entities
 script.on_event(defines.events.on_built_entity, register_repellent, event_filter)
 script.on_event(defines.events.on_robot_built_entity, register_repellent, event_filter)

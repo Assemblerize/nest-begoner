@@ -1,10 +1,10 @@
 -- Safe speed change
-local repellent_animation_lower = {
+local repellent_animation = {
   type = "animation",
-  name = "nbg-repellent-animation-lower",
+  name = "nbg-repellent-animation",
   layers = {
     {
-      filename = "__nest-begoner__/sprites/base_lower.png",
+      filename = "__nest-begoner__/sprites/base_upper.png",
       width = 544,
       height = 544,
       frame_count = 64,
@@ -53,6 +53,9 @@ local repellent_animation_top = {
   scale = 0.5
 }
 
+
+
+
 local screen_animation = {
   type = "animation",
   name = "nbg-working-screen-animation",
@@ -83,6 +86,10 @@ local screen_no_charge_animation = {
   blend_mode = "additive"
 }
 
+
+
+
+
 local indicator_sprite = {
   type = "sprite",
   name = "nbg-indicator",
@@ -109,6 +116,13 @@ local charging_animation = {
   scale = 0.5,
   blend_mode = "additive"
 }
+
+
+
+
+
+
+
 
 local fire_animation_base = {
   type = "animation",
@@ -202,16 +216,6 @@ local fire_animation_north = {
   blend_mode = "additive"
 }
 
-local blank_sprite = {
-  type = "sprite",
-  name = "nbg-blank",
-  filename = "__nest-begoner__/sprites/icons/blank.png",
-  width = 128,
-  height = 128,
-  scale = 0.5,
-  draw_as_glow = true
-}
-
 data:extend({
   repellent_animation_lower,
   repellent_animation_upper,
@@ -223,5 +227,4 @@ data:extend({
   fire_animation_base,
   fire_animation_west,
   fire_animation_south,
-  fire_animation_north,
-  blank_sprite})
+  fire_animation_north})

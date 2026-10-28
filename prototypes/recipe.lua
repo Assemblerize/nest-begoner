@@ -13,7 +13,6 @@ local repellent_recipe = {
   subgroup = "defensive-structure",
   order = "d[radar]-b[expansion-repellent]",
   
-  --factoriopedia_alternative = "nbg-expansion-repellent-holdable",
   ingredients = {
       {type = "item", name = "advanced-circuit", amount = 100},
       {type = "item", name = "steel-plate", amount = 100},
