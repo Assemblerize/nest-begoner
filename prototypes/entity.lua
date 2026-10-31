@@ -7,7 +7,7 @@ local repellent = {
   flags = {"placeable-player", "player-creation", "not-rotatable"},
   subgroup = "defensive-structure",
   order = "z-d[radar]-b[expansion-repellent]",
-  collision_box = {{-2.45, -2.2}, {2.5, 2.2}},
+  collision_box = {{-2.4, -2.4}, {2.4, 2.4}},
   selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
   is_military_target = true,
   random_variation_on_create = false,
@@ -22,6 +22,7 @@ local repellent = {
 
   gui_mode = "none",
   continuous_animation = true,
+  tall = true,
 
   dying_explosion = "oil-refinery-explosion",
   impact_category = "metal-large",
@@ -116,7 +117,7 @@ local corpse = {
   name = "nbg-repellent-corpse",
   icon = "__nest-begoner__/sprites/icons/Icon.png",
   flags = {"placeable-neutral", "not-on-map"},
-  hidden_in_factoriopedia = true,
+  --hidden_in_factoriopedia = true,
   subgroup = "defensive-structure-remnants",
   order = "a-a-a",
   --collision_box = {{-2.4, -2.2}, {2.4, 2.4}},

@@ -11,6 +11,9 @@ local repellent_animation_bottom = {
   scale = 0.5
 }
 
+
+-- This one is needed separately to do a proper overlap with protruding stuff like artillery
+-- It looks odd if the top of a repellent is drawn under the muzzle
 local repellent_animation_top = {
   type = "animation",
   name = "nbg-repellent-animation-top",

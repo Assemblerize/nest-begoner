@@ -44,7 +44,8 @@ local function renderAnimation(entity, animation_name, render_layer, time_to_liv
       render_mode = "game",
       render_layer = render_layer,
       animation_speed = speed,
-      animation_offset = offset
+      animation_offset = offset,
+      tall = true
     }
 end
 
