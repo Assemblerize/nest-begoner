@@ -33,7 +33,7 @@ end
 
 --===================Animated elements================
 
-local function renderAnimation(entity, animation_name, render_layer, time_to_live, speed, offset, render_mode)
+local function renderAnimation(entity, animation_name, render_layer, time_to_live, speed, offset)
   begoner_log(false, true, "Rendering %s animation for entity: %d", animation_name, entity.unit_number)
   return
     rendering.draw_animation{
@@ -41,7 +41,7 @@ local function renderAnimation(entity, animation_name, render_layer, time_to_liv
       target = entity,
       surface = entity.surface,
       time_to_live = time_to_live,
-      render_mode = render_mode or "game",
+      render_mode = "game",
       render_layer = render_layer,
       animation_speed = speed,
       animation_offset = offset
@@ -59,11 +59,11 @@ end
 
 -- Screen
 function renderWorkingScreenAnimation(entity, offset)
-  return renderAnimation(entity, "nbg-working-screen-animation", "object-under", 0, MAIN_ANIMATION_SPEED, offset, "additive-soft")
+  return renderAnimation(entity, "nbg-working-screen-animation", "object", 0, MAIN_ANIMATION_SPEED, offset)
 end
 
 function renderNoChargeScreenAnimation(entity)
-  return renderAnimation(entity, "nbg-no-charge-animation", "object-under", 0, NO_CHARGE_ANIMATION_SPEED, 0, "additive-soft")
+  return renderAnimation(entity, "nbg-no-charge-animation", "object", 0, NO_CHARGE_ANIMATION_SPEED, 0)
 end
 
 function swapScreenAnimation(screen_animation, to_working, offset)
@@ -82,13 +82,12 @@ end
 
 --Charging
 function renderChargingAnimation(entity, offset)
-  return renderAnimation(entity, "nbg-charging-animation", "above-inserters", 0, MAIN_ANIMATION_SPEED, offset, "additive-soft")
+  return renderAnimation(entity, "nbg-charging-animation", "object", 0, MAIN_ANIMATION_SPEED, offset)
 end
 
 -- Main animation
 function renderMainAnimation(entity)
-  return { renderAnimation(entity, "nbg-repellent-animation-lower", "object-under", 0, MAIN_ANIMATION_SPEED_STOP, 0),
-           renderAnimation(entity, "nbg-repellent-animation-upper", "object", 0, MAIN_ANIMATION_SPEED_STOP, 0),
+  return { renderAnimation(entity, "nbg-repellent-animation-bottom", "object", 0, MAIN_ANIMATION_SPEED_STOP, 0),
            renderAnimation(entity, "nbg-repellent-animation-top", "above-inserters", 0, MAIN_ANIMATION_SPEED_STOP, 0) }
 end
 
@@ -126,7 +125,7 @@ function renderIndicator(entity)
     target = entity,
     surface = entity.surface,
     render_mode = "game",
-    render_layer = "object-under",
+    render_layer = "object",
     tint = {0, 0, 0, 0} -- by default entities have their status light turned off
   }
 end

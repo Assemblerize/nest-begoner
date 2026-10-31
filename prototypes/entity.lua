@@ -36,7 +36,7 @@ local repellent = {
     --drain = "0kW"
   },
 
-  render_layer = "under-object",
+  render_layer = "object",
   corpse = "nbg-repellent-corpse",
 
   picture = {
@@ -48,6 +48,16 @@ local repellent = {
         height = 544,
         shift = {0, -1},
         scale = 0.5
+      },
+      {
+        filename = "__nest-begoner__/sprites/small_screens.png",
+        priority = "extra-high",
+        width = 544,
+        height = 544,
+        shift = {0, -1},
+        scale = 0.5,
+        draw_as_glow = true,
+        blend_mode = "additive"
       },
       {
         filename = "__nest-begoner__/sprites/base_shadow.png",
@@ -62,7 +72,7 @@ local repellent = {
   },
 
   integration_patch = {
-    filename = "__nest-begoner__/sprites/integration_patch.png",
+    filename = "__nest-begoner__/sprites/integration.png",
     priority = "low",
     width = 544,
     height = 544,

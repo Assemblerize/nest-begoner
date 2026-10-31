@@ -79,7 +79,7 @@ script.on_event(defines.events.on_player_setup_blueprint, blueprint_handling)
 script.on_event(defines.events.on_object_destroyed, deregister_repellent)
 
 -- Handle death
-script.on_event(defines.events.on_entity_died, swap_ghost, event_filter)
+-- script.on_event(defines.events.on_entity_died, swap_ghost, event_filter)
 
 -- Handle marked for deconstruction
 script.on_event(defines.events.on_marked_for_deconstruction, updateMarkedForDeconstructionStatus, event_filter)

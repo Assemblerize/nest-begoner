@@ -2,7 +2,7 @@ local ENERGY_TO_REPEL = 199000000
 
 local begoner_log = begoner_log
 local get_factorio_version = get_factorio_version
-local renderAction = renderAction
+-- local renderAction = renderAction
 
 local function add_custom_alert_to_force(entity)
   local sounded_players = {}
@@ -86,7 +86,7 @@ function repel_biters_function(event)
   -- process direction for animation
   local ax, ay = repellent.position.x, repellent.position.y
   local bx, by = biter_group.position.x, biter_group.position.y
-  renderAction(repellent, math.atan2(by - ay, bx - ax))
+  -- renderAction(repellent, math.atan2(by - ay, bx - ax))
 
   -- sound effect for action
   repellent.surface.play_sound({
