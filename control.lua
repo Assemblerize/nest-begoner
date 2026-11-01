@@ -1,6 +1,5 @@
 require("__nest-begoner__.scripts.misc")
 require("__nest-begoner__.scripts.animation_control")
-require("__nest-begoner__.scripts.blueprint")
 require("__nest-begoner__.scripts.status_control")
 require("__nest-begoner__.scripts.effect_radius_control")
 require("__nest-begoner__.scripts.registration")
