@@ -106,13 +106,6 @@ local charging_animation = {
   blend_mode = "additive"
 }
 
-
-
-
-
-
-
-
 local fire_animation_base = {
   type = "animation",
   name = "nbg-fire-animation-base",
