@@ -4,5 +4,8 @@
   "title": "Nest Begoner",
   "author": "Luamaniemi",
   "factorio_version": "2.1",
-  "dependencies": ["base >= 2.1"]
+  "dependencies": ["base >= 2.1"],
+  "package": {
+    "ignore": ["graphics/**", "blender/**", ".vscode/**"]
+  }
 }
