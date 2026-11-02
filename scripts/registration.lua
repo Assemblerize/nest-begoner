@@ -26,9 +26,7 @@ function register_repellent(event)
     circle = draw_circle(entity, radius)
   }
 
-  if get_factorio_version() ~= "2.0" then
-    entity.set_tooltip_field({id = 555, name = {"custom-tooltip.nbg-frags"}, value = "0", order = 100})
-  end
+  entity.set_tooltip_field({id = 555, name = {"custom-tooltip.nbg-frags"}, value = "0", order = 100})
   repellentStatusCheck(storage.repellent_data[useful_id])
   begoner_log(false, true, "Repellent registered with ID: %d", useful_id)
 end

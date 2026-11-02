@@ -1,7 +1,3 @@
-require("__nest-begoner__.scripts.misc")
-
-local major_minor = get_factorio_version()
-
 local repellent_recipe = {
   type = "recipe",
   name = "nbg-expansion-repellent",
@@ -12,7 +8,7 @@ local repellent_recipe = {
   --category = "crafting",
   subgroup = "defensive-structure",
   order = "d[radar]-b[expansion-repellent]",
-  
+  categories = {"crafting"},
   ingredients = {
       {type = "item", name = "advanced-circuit", amount = 100},
       {type = "item", name = "steel-plate", amount = 100},
@@ -21,11 +17,5 @@ local repellent_recipe = {
   },
   results = {{type = "item", name = "nbg-expansion-repellent", amount = 1}}
 }
-
-if major_minor == "2.1" then
-  repellent_recipe.categories = {"crafting"}
-else
-  repellent_recipe.category = "crafting"
-end
 
 data:extend({repellent_recipe})

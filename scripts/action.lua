@@ -1,7 +1,6 @@
 local ENERGY_TO_REPEL = 199000000
 
 local begoner_log = begoner_log
-local get_factorio_version = get_factorio_version
 -- local renderAction = renderAction
 
 local function add_custom_alert_to_force(entity)
@@ -45,9 +44,7 @@ local function up_the_frags(repellent_data)
   local frags = repellent_data.frags + 1
   repellent_data.frags = frags
   
-  if get_factorio_version() ~= "2.0" then
-    repellent_data.entity.set_tooltip_field({id = 555, name = {"custom-tooltip.nbg-frags"}, value = frags, order = 100})
-  end
+  repellent_data.entity.set_tooltip_field({id = 555, name = {"custom-tooltip.nbg-frags"}, value = frags, order = 100})
 end
 
 -- Main repel function

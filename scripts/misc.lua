@@ -78,9 +78,3 @@ function debug_button()
   -- begoner_log(false, false, "\n+++++++++++++++Redos:\n")
   -- print_redo(game.get_player(1))
 end
-
-function get_factorio_version()
-  local factorio_version = helpers.game_version
-  begoner_log(false, false, "Factorio version: %s", factorio_version)
-  return string.sub(factorio_version, 1, 3)
-end
