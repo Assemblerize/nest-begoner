@@ -8,6 +8,8 @@ local begoner_log = begoner_log
 --================Main animation speed changing================
 
 local function changeRenderAnimationSpeed(render_object, new_speed)
+  if not render_object then return end
+
   local current_speed = render_object.animation_speed
   local current_offset = render_object.animation_offset
   local current_tick = game.tick
@@ -33,7 +35,7 @@ end
 
 --===================Animated elements================
 
-local function renderAnimation(entity, animation_name, render_layer, time_to_live, speed, offset)
+local function renderAnimation(entity, animation_name, render_layer, time_to_live, speed, offset, tall)
   begoner_log(false, true, "Rendering %s animation for entity: %d", animation_name, entity.unit_number)
   return
     rendering.draw_animation{
@@ -44,7 +46,8 @@ local function renderAnimation(entity, animation_name, render_layer, time_to_liv
       render_mode = "game",
       render_layer = render_layer,
       animation_speed = speed,
-      animation_offset = offset
+      animation_offset = offset,
+      tall = tall
     }
 end
 
@@ -59,16 +62,16 @@ end
 
 -- Screen
 function renderWorkingScreenAnimation(entity, offset)
-  return renderAnimation(entity, "nbg-working-screen-animation", "object-under", 0, MAIN_ANIMATION_SPEED, offset)
+  return renderAnimation(entity, "nbg-working-screen-animation", "object", 0, MAIN_ANIMATION_SPEED, offset, false)
 end
 
 function renderNoChargeScreenAnimation(entity)
-  return renderAnimation(entity, "nbg-no-charge-animation", "object-under", 0, NO_CHARGE_ANIMATION_SPEED, 0)
+  return renderAnimation(entity, "nbg-no-charge-animation", "object", 0, NO_CHARGE_ANIMATION_SPEED, 0, false)
 end
 
 function swapScreenAnimation(screen_animation, to_working, offset)
   if not screen_animation and not screen_animation.valid then
-    game.print("Ivalid screen animation!") end
+    begoner_log(true, true, "Invalid screen animation!") return end
   begoner_log(false, true, "Swapping screen animation...")
   if to_working then
     screen_animation.animation = "nbg-working-screen-animation"
@@ -82,25 +85,24 @@ end
 
 --Charging
 function renderChargingAnimation(entity, offset)
-  return renderAnimation(entity, "nbg-charging-animation", "above-inserters", 0, MAIN_ANIMATION_SPEED, offset)
+  return renderAnimation(entity, "nbg-charging-animation", "object", 0, MAIN_ANIMATION_SPEED, offset, false)
 end
 
 -- Main animation
 function renderMainAnimation(entity)
-  return { renderAnimation(entity, "nbg-repellent-animation-lower", "object-under", 0, MAIN_ANIMATION_SPEED_STOP, 0),
-           renderAnimation(entity, "nbg-repellent-animation-upper", "object", 0, MAIN_ANIMATION_SPEED_STOP, 0),
-           renderAnimation(entity, "nbg-repellent-animation-top", "above-inserters", 0, MAIN_ANIMATION_SPEED_STOP, 0) }
+  return { renderAnimation(entity, "nbg-repellent-animation-bottom", "object", 0, MAIN_ANIMATION_SPEED_STOP, 0, false),
+           renderAnimation(entity, "nbg-repellent-animation-top", "above-inserters", 0, MAIN_ANIMATION_SPEED_STOP, 0, true) }
 end
 
 
 --Action
 local function renderActionDirection(entity, animation)
-  renderAnimation(entity, animation, "above-inserters", 16/MAIN_ANIMATION_SPEED, MAIN_ANIMATION_SPEED, -(game.tick * MAIN_ANIMATION_SPEED) % 16)
+  renderAnimation(entity, animation, "above-inserters", 16/MAIN_ANIMATION_SPEED, MAIN_ANIMATION_SPEED, -(game.tick * MAIN_ANIMATION_SPEED) % 16, true)
 end
 
 
 function renderAction(entity, direction)
-  renderAnimation(entity, "nbg-fire-animation-base", "above-inserters", 16/MAIN_ANIMATION_SPEED, MAIN_ANIMATION_SPEED, -(game.tick * MAIN_ANIMATION_SPEED) % 16)
+  renderAnimation(entity, "nbg-fire-animation-base", "above-inserters", 16/MAIN_ANIMATION_SPEED, MAIN_ANIMATION_SPEED, -(game.tick * MAIN_ANIMATION_SPEED) % 16, false)
 
   local west_start = 2 * math.pi / 3
 
@@ -126,7 +128,7 @@ function renderIndicator(entity)
     target = entity,
     surface = entity.surface,
     render_mode = "game",
-    render_layer = "object-under",
+    render_layer = "object",
     tint = {0, 0, 0, 0} -- by default entities have their status light turned off
   }
 end

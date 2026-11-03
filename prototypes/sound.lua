@@ -1,7 +1,7 @@
 local action_sound = {
   type = "sound",
   name = "nbg-repellent-action-sound",
-  category = "game-effect",
+  category = "weapon",
   filename = "__nest-begoner__/sound/action.ogg"
 }
 

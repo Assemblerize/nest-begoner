@@ -94,8 +94,7 @@ local custom_tooltip = {
 }
 
 for _, proto in pairs({
-  data.raw["electric-energy-interface"]["nbg-expansion-repellent"],
-  data.raw["electric-energy-interface"]["nbg-expansion-repellent-holdable"],
+  data.raw["electric-energy-interface"]["nbg-expansion-repellent"]
 }) do
   if proto then
     proto.custom_tooltip_fields = proto.custom_tooltip_fields or {}

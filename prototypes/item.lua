@@ -6,7 +6,7 @@ local repellent_item = {
   flags = {},
   subgroup = "defensive-structure",
   order = "d[radar]-b[expansion-repellent]",
-  place_result = "nbg-expansion-repellent-holdable",
+  place_result = "nbg-expansion-repellent",
   stack_size = 10
 }
 

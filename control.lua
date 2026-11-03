@@ -1,6 +1,5 @@
 require("__nest-begoner__.scripts.misc")
 require("__nest-begoner__.scripts.animation_control")
-require("__nest-begoner__.scripts.blueprint")
 require("__nest-begoner__.scripts.status_control")
 require("__nest-begoner__.scripts.effect_radius_control")
 require("__nest-begoner__.scripts.registration")
@@ -65,29 +64,19 @@ script.on_event(defines.events.on_build_base_arrived, repel_biters_function)
 
 
 local event_filter = {
-  { filter = "name", name = "nbg-expansion-repellent" },
-  { filter = "name", name = "nbg-expansion-repellent-holdable" } }
+  { filter = "name", name = "nbg-expansion-repellent" } }
 -- Registering entities
 script.on_event(defines.events.on_built_entity, register_repellent, event_filter)
 script.on_event(defines.events.on_robot_built_entity, register_repellent, event_filter)
 script.on_event(defines.events.script_raised_built, register_repellent, event_filter)
 script.on_event(defines.events.script_raised_revive, register_repellent, event_filter)
 
--- Register to handle blueprints
-script.on_event(defines.events.on_player_setup_blueprint, blueprint_handling)
-
 -- Deregistering entities
 script.on_event(defines.events.on_object_destroyed, deregister_repellent)
-
--- Handle death
-script.on_event(defines.events.on_entity_died, swap_ghost, event_filter)
 
 -- Handle marked for deconstruction
 script.on_event(defines.events.on_marked_for_deconstruction, updateMarkedForDeconstructionStatus, event_filter)
 script.on_event(defines.events.on_cancelled_deconstruction, updateMarkedForDeconstructionStatus, event_filter)
-
-
---script.on_event(defines.events.on_pre_build, swap_quality)
 
 -- Shortcuts
 function button_press(event)
