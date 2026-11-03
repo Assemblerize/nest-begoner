@@ -70,9 +70,6 @@ function AsyncChunkScanner.stop_all()
   script.on_nth_tick(1, nil)
 end
 
--- ============================================================================
--- 2. ON_TICK
--- ============================================================================
 
 function AsyncChunkScanner.on_tick(event)
   -- Stop all if no storage
@@ -151,9 +148,6 @@ function AsyncChunkScanner.on_tick(event)
   end
 end
 
--- ============================================================================
--- 3. SINGLE CHUNK LOGIC
--- ============================================================================
 
 -- Collecting entities
 function AsyncChunkScanner.collect_entities(state, entities, group_id, current_step_chunks)
@@ -277,10 +271,6 @@ function AsyncChunkScanner.process_single_chunk(state, cx, cy)
   return score
 end
 
--- ============================================================================
--- 1. INIT AND START
--- ============================================================================
-
 --- Start async scanner
 function AsyncChunkScanner.start_scan(scanner_id, surface, start_cx, start_cy, end_cx, end_cy, exclusion, settings,
                                       force, callback_fn)
@@ -314,7 +304,7 @@ function AsyncChunkScanner.start_scan(scanner_id, surface, start_cx, start_cy, e
 
     exclusion = exclusion,
 
-    -- Cach (saved between ticks)
+    -- Cache (saved between ticks)
     object_locations = {}, -- unit_number -> {cx, cy}
     grid_objects = {},     -- chunk_key -> {group_enemy = N, group_player = M}
 
