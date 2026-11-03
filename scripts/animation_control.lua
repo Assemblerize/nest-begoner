@@ -8,6 +8,8 @@ local begoner_log = begoner_log
 --================Main animation speed changing================
 
 local function changeRenderAnimationSpeed(render_object, new_speed)
+  if not render_object then return end
+
   local current_speed = render_object.animation_speed
   local current_offset = render_object.animation_offset
   local current_tick = game.tick
@@ -69,7 +71,7 @@ end
 
 function swapScreenAnimation(screen_animation, to_working, offset)
   if not screen_animation and not screen_animation.valid then
-    game.print("Ivalid screen animation!") end
+    begoner_log(true, true, "Invalid screen animation!") return end
   begoner_log(false, true, "Swapping screen animation...")
   if to_working then
     screen_animation.animation = "nbg-working-screen-animation"
